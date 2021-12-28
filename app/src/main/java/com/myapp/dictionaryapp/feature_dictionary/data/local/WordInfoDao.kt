@@ -10,11 +10,11 @@ import com.myapp.dictionaryapp.feature_dictionary.data.local.entities.WordInfoEn
 interface WordInfoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertWordsInfo(word: List<WordInfoEntity>)
+    suspend fun insertWordInfos(word: List<WordInfoEntity>)
 
     @Query("DELETE FROM wordinfoentity WHERE word IN (:words)")
-    suspend fun deleteWordsInfo(words: List<String>)
+    suspend fun deleteWordInfos(words: List<String>)
 
     @Query("SELECT * FROM wordinfoentity WHERE word LIKE '%' || :word || '%'")
-    suspend fun getWordsInfo(word: String): List<WordInfoEntity>
+    suspend fun getWordInfos(word: String): List<WordInfoEntity>
 }
